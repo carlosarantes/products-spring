@@ -24,18 +24,14 @@ public class Seeder {
 
                 System.out.println("-------------------------------------------");
                 for (State es : states) {
-
-                    System.out.println(  es.getCities() );
-
-
-
-//                    for (City ci : es.getCities()) {
-//                        System.out.println(ci);
-//
-//                       // ci.setState(es);
-//                    }
-//                    System.out.println("Salvando estado: "+es.getName());
-                   // stateService.create(es);
+                    if (es.getCities() != null) {
+                        for (City ci : es.getCities()) {
+                            System.out.println(ci);
+                            ci.setState(es);
+                        }
+                        System.out.println("Salvando estado: "+es.getName());
+                        stateService.create(es);
+                    }
                 }
                 System.out.println("-------------------------------------------");
 

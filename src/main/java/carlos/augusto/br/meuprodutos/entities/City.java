@@ -2,6 +2,7 @@ package carlos.augusto.br.meuprodutos.entities;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @Table(name = "cities")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class City {
 
     @Id
@@ -85,8 +87,8 @@ public class City {
         this.products = products;
     }
 
-    @ManyToOne
-    @JoinColumn(name="state_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn(name="state_id", nullable = true)
     private State state;
 
     @JsonIgnore

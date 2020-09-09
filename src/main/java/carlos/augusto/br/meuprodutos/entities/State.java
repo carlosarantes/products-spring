@@ -87,7 +87,7 @@ public class State {
     }
 
     @JsonIgnore
-    @OneToMany(mappedBy = "state")
+    @OneToMany(mappedBy = "state", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<City> cities;
 
     @Override

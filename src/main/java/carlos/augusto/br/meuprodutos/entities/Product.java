@@ -76,7 +76,7 @@ public class Product {
         this.city = city;
     }
 
-    @ManyToOne
-    @JoinColumn(name="city_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn(name="city_id", nullable = true)
     private City city;
 }
