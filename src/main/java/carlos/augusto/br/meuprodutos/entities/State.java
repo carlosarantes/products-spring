@@ -87,6 +87,16 @@ public class State {
     }
 
     @JsonIgnore
-    @OneToMany(mappedBy = "state", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "state")
     private List<City> cities;
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", initials='" + initials + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

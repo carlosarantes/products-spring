@@ -76,7 +76,7 @@ public class Product {
         this.city = city;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name="city_id", nullable = false)
     private City city;
 }

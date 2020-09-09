@@ -24,11 +24,18 @@ public class Seeder {
 
                 System.out.println("-------------------------------------------");
                 for (State es : states) {
-                    for (City ci : es.getCities()) {
-                        ci.setState(es);
-                    }
-                    System.out.println("Salvando estado: "+es.getName());
-                    stateService.create(es);
+
+                    System.out.println(  es.getCities() );
+
+
+
+//                    for (City ci : es.getCities()) {
+//                        System.out.println(ci);
+//
+//                       // ci.setState(es);
+//                    }
+//                    System.out.println("Salvando estado: "+es.getName());
+                   // stateService.create(es);
                 }
                 System.out.println("-------------------------------------------");
 
@@ -37,8 +44,9 @@ public class Seeder {
                 System.out.println(e.getMessage());
                 System.out.println("-------------------------------------------");
             } catch (Exception e) {
-                System.out.println("Ocorreu um erro");
-                System.out.println(e.getMessage());
+                System.out.println("**** Ocorreu um erro");
+                e.printStackTrace();
+             //   System.out.println(e.printStackTrace() );
                 System.out.println("-------------------------------------------");
             }
        }
